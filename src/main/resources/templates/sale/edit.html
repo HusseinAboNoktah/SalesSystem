@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Seller</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div th:replace="layout/navbar :: navbar"></div>
+<div class="container my-5">
+    <h3> Add Seller</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/sale/update}" th:object="${sale}" method="post">
+                    <div class="row">
+
+                        <div class="form-group  col-md-8">
+                            <label for="cat">Client</label>
+                            <select class="form-control" th:field="*{client}" id="cat">
+
+                                <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.name}"></option>
+                            </select>
+                        </div>
+                        <div class="form-group  col-md-8">
+                            <label for="cat">Seller</label>
+                            <select class="form-control" th:field="*{seller}" id="cat">
+
+                                <option th:each="seller : ${sellers}" th:value="${seller.id}" th:text="${seller.name}"></option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+                        <input type="hidden" id="id" th:field="*{id}">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
